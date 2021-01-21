@@ -1,0 +1,40 @@
+[
+    {
+        "id": 1,
+        "descricao": "Olá, como vai você?",
+        "time": "16:30",
+        "isMe":  true
+    },
+    {
+        "id": 2,
+        "descricao": "Vocês estão bem?",
+        "time": "16:32",
+        "isMe":  true
+    },
+    {
+        "id": 3,
+        "descricao": "Está gostando do Curso?",
+        "time": "16:35",
+        "isMe":  true
+    },
+    {
+    "id": 4,     
+    "descricao": "Estou bem e você?",
+    "time": "16:31",
+    "isMe": false
+},
+{
+    "id": 5,
+    "descricao": "Estamos todos bem",
+    "time": "16:34",
+    "isMe": false
+},
+
+{
+    "id": 6,
+    "descricao": "Estou",
+    "time": "16:36",
+    "isMe": false
+}
+
+]
