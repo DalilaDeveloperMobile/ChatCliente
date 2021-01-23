@@ -13,9 +13,9 @@ import React from 'react';
 //import Timer from '../Timer';
 //import { render } from 'react-dom';
 
-function Footer(props) {
+function Footer() {
  //const { setLiveMessage } = props; // resgatando a funcao
- const { handleTxtMensagem, cadastrar, mensagems } = props;
+ 
  
  // function handleSubmit(event) {
  //   event.preventDefault();

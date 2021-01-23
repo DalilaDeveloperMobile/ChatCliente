@@ -135,6 +135,7 @@ function Chat() {
       <div className="row" >
         <aside className="col-sm-3" style={{ backgroundColor: '#FFFFFF' }}>
           <Aside
+            setContatos={setContatos}
             contatos={contatos}
             recarregarContatos={setCarregarContatos} />
         </aside>
@@ -156,32 +157,6 @@ function Chat() {
            recarregarMensagems={setCarregarMensagems}/>
 
         </main>
-      </div>
-
-      <div className="row justify-content-end">
-        <footer className="col-sm-9" style={{ backgroundColor: '#F5F1EE', height: '10vh' }}>
-
-          <form onSubmit={cadastrar}>
-            <div className="row justify-content-center mt-1 " >
-              <textarea value={mensagems} onChange={handleTxtMensagem} type="text"
-                className="col-8 mt-1 " style={{
-                  width: '10%', height: '6.2vh', backgroundColor: '#FFFFFF',
-                  borderRadius: '4px', borderColor: '#FFFFFF'
-                }}>
-              </textarea>
-
-              <button type="button" type="submit" className="col-4" className="btn btn-light"
-                value="Submit" style={{
-                  width: '20%', height: '6px', backgroundColor: '#F5F1EE',
-                  borderColor: '#F5F1EE'
-                }}>
-                <FontAwesomeIcon icon={faPlay} className="fa-lg" />
-              </button>
-            </div>
-          </form>
-
-
-        </footer>
       </div>
     </div>
 
