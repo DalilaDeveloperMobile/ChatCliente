@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import Mensagens from '../../models/mensagens.model';
+//import RemoverMensagens from '../main/remover-mensagens';
 
 import axios from 'axios';
 
@@ -34,70 +35,84 @@ function Mensagems(props) {
     }
 
 
+    // <h1 className="col align-self-end ">
+   // <RemoverMensagens mensagems={mensagems} carregarMensagens={props.carregarMensagens} />
+   // </h1>
+    // As horas das mensagens não estão aparecendo.
     return (
         <div>
             {props.mensagems.map(mensagem =>
 
-            mensagem.isMe === true ?
+                mensagem.isMe === true ?
 
-                <div key={mensagem.id} className="d-flex justify-content-start mt-2">
-                    <div className="row-cols-auto">
-                        <div className="col" style={{
-                            background: '#FFFFFF',
-                            borderRadius: '10px 10px 10px 0px'
-                        }}>
+                    <div key={mensagem.id} className="d-flex justify-content-start mt-2">
+                        <div className="row-cols-auto">
+                            <div className="col" style={{
+                                background: '#FFFFFF',
+                                borderRadius: '10px 10px 10px 0px'
+                            }}>
 
-                            <h6 className="pt-2" style={{
-                                fontStyle: 'normal',
-                                fontSize: '15px', lineHeight: '20px',
-                                color: '#333333'
-                            }}>{mensagem.descricao}</h6>
+                                <h6 className="pt-2" style={{
+                                    fontStyle: 'normal',
+                                    fontSize: '15px', lineHeight: '20px',
+                                    color: '#333333'
+                                }}>{mensagem.descricao}</h6>
 
-                            <h6 style={{
-                                fontStyle: 'normal',
-                                fontSize: '13px', textAlign: 'right', lineHeight: '20px',
-                                color: '#9A9A9A'
-                            }}>{mensagem.time}</h6>
+                               
 
+                                <h6 style={{
+                                    fontStyle: 'normal',
+                                    fontSize: '13px', textAlign: 'right', lineHeight: '20px',
+                                    color: '#9A9A9A'
+                                }}>{mensagem.time}</h6>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                :
-                <div key={mensagem.id} className="d-flex justify-content-end mt-2">
-                    <div className="row-cols-auto">
-                        <div className="col" style={{
-                            background: '#DCF8C6',
-                            borderRadius: '10px 10px 10px 0px'
-                        }}>
+                    :
+                    <div key={mensagem.id} className="d-flex justify-content-end mt-2">
+                        <div className="row-cols-auto">
+                            <div className="col" style={{
+                                background: '#DCF8C6',
+                                borderRadius: '10px 10px 10px 0px'
+                            }}>
+                               
+                                <h6 className="pt-2" style={{
+                                    fontStyle: 'normal',
+                                    fontSize: '15px', lineHeight: '20px',
+                                    color: '#333333'
+                                }}>{mensagem.descricao}</h6 >
 
-                            <h6 className="pt-2" style={{
-                                fontStyle: 'normal',
-                                fontSize: '15px', lineHeight: '20px',
-                                color: '#333333'
-                            }}>{mensagem.descricao}</h6 >
+                               
+                                
 
-                            <h6 style={{
-                                fontStyle: 'normal',
-                                fontSize: '13px', textAlign: 'right', lineHeight: '20px',
-                                color: '#9A9A9A'
-                            }}>{mensagem.time}</h6>
+                                <h6 style={{
+                                    fontStyle: 'normal',
+                                    fontSize: '13px', textAlign: 'right', lineHeight: '20px',
+                                    color: '#9A9A9A'
+                                }}>{mensagem.time}</h6>
+                                
+
+                            </div>
+
 
                         </div>
 
 
                     </div>
+            )
+            }
 
-                   
-                </div>
+            <br />
+            <br />
+            <br />
 
-
-                    
-        )
-
-    }
- <div className="row">
-        <footer className="col" style={{ backgroundColor: '#F5F1EE', height: '10vh' }}>
-                <form onSubmit={cadastrar}>
+            <div className="row">
+                <footer className="col" style={{
+                    position: 'absolute', bottom: '0', width: '100%',
+                    backgroundColor: '#F5F1EE', height: '10vh'
+                }}>
+                    <form onSubmit={cadastrar}>
                         <div className="row justify-content-center mt-1 " >
                             <textarea value={mensagems} onChange={handleTxtMensagem} type="text"
                                 className="col-8 mt-1 " style={{
@@ -115,10 +130,10 @@ function Mensagems(props) {
                             </button>
                         </div>
                     </form>
-                    </footer>
-                    </div>
-              </div>
-              
+                </footer>
+            </div>
+        </div>
+
     )
 
 }

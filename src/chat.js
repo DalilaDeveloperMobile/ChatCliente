@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+//import { makeStyles } from '@material-ui/styles';
 import './chat.css';
 import Header from './componentes/header';
 import Aside from './componentes/aside';
@@ -10,14 +11,33 @@ import Aside from './componentes/aside';
 //import MessageRight from './componentes/main/MessageRight';
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import Mensagens from '../src/models/mensagens.model';
+//import Mensagens from '../src/models/mensagens.model';
 import Mensagems from './componentes/main/mensagens';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 import axios from 'axios';
 
+
+//const useStyles = makeStyles((theme) =>({
+  //Header
+//  areaHeader: {
+//    backgroundColor: '#eeeeee',
+//    height: '9vh',
+//  },
+  //Pesquisa Contatos
+//  divInput1: {
+//    backgroundColor: '#F7F7F7',
+//    height: '40px',
+//  },
+//  input1: {
+//    width: '25vh',
+//  },
+//}));
+
 function Chat() {
+//  const classes = useStyles();
+
 
   // const {mensagem} = props;
 
@@ -26,7 +46,7 @@ function Chat() {
 
   // LISTAR_MENSAGENS.
   const API_URL_LISTAR_MENSAGENS = 'http://localhost:3001/chat-mensagens';
-  const API_URL_CADASTRAR_MENSAGENS = 'http://localhost:3001/chat-mensagens';
+  //const API_URL_CADASTRAR_MENSAGEMS = 'http://localhost:3001/chat-mensagens';
 
   // LISTAR_CONTATOS.
   const [contatos, setContatos] = useState([]);
@@ -86,28 +106,6 @@ function Chat() {
     setCarregarMensagems(true);
   }
 
-  // CADASTRAR_MENSAGENS
-  async function cadastrar(event) {
-    event.preventDefault();
-
-    if (event.currentTarget.checkValidity() === true) {
-      try {
-        const novaMensagem = new Mensagens(null, mensagems, false);
-        await axios.post(API_URL_CADASTRAR_MENSAGENS, novaMensagem);
-
-      } catch (err) {
-
-      }
-    }
-  }
-
-  function handleTxtMensagem(event) {
-    setMensagems(event.target.value);
-  }
-
-
-
-
   //  const FiltrarContacts = (text) => {
   //    setContacts(contacts.filter((c) => c.name.toUpperCase().includes(text.toUpperCase())));
   //  }
@@ -115,14 +113,16 @@ function Chat() {
   return (
     <div className="container-fluid">
       <div className="row">
-        <header className="col-sm-12" style={{ backgroundColor: '#eeeeee', height: '9vh' }}>
+        <header className="col-sm-12" style={{backgroundColor: '#eeeeee',
+         height: '9vh'}}>
           <Header />
         </header>
       </div>
 
       <div className="row" >
-        <div className="col p-1" style={{ backgroundColor: '#F7F7F7', height: '40px' }}>
-          <input className="col-3" style={{ width: '25%' }}
+        <div className=" pt-1" style={{backgroundColor: '#F7F7F7',
+          height: '40px'}}>
+          <input className="col-3" style={{width: '23%'}} 
             // LISTAR_CONTATOS.
             value={filtroContato}
             onChange={handleFiltrar}
@@ -143,7 +143,7 @@ function Chat() {
         <main className="col-sm-9" style={{ backgroundColor: '#F7F7F7' }}>
 
           <div className="p-1 d-flex justify-content-center" style={{ backgroundColor: '#F7F7F7', height: '40px' }}>
-            <input className="col-3" style={{ width: '40%', backgroundColor: '#F7F7F7'}}
+            <input className="col-3" style={{ width: '40%', backgroundColor: '#F7F7F7' }}
               // LISTAR_MENSAGENS.
               value={filtroMensagems}
               onChange={handleFiltrarMensagens}
@@ -153,8 +153,8 @@ function Chat() {
           </div>
 
           <Mensagems
-           mensagems={mensagems}
-           recarregarMensagems={setCarregarMensagems}/>
+            mensagems={mensagems}
+            recarregarMensagems={setCarregarMensagems} />
 
         </main>
       </div>

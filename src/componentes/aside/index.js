@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Button, Form, Modal } from 'react-bootstrap';
 import Contatos from '../../models/contatos.model';
+import AtualizarContato from '../aside/atualizar-contatos';
+import RemoverContato from '../aside/remover-contatos'; 
 import axios from 'axios';
 
 function Aside(props) {
@@ -13,12 +15,7 @@ function Aside(props) {
     const [formValidado, setFormValidado] = useState(false);
     const [exibirModal, setExibirModal] = useState(false);
 
-
-    //  const { setContatos } = props;
-
-    //  const { contatos } = props;
-
-
+    // Adicionar Contato
     async function cadastrar(event) {
         setFormValidado(true);
         if (event.currentTarget.checkValidity() === true) {
@@ -46,13 +43,8 @@ function Aside(props) {
         setExibirModal(false);
     }
 
-
+    // As horas dos contatos não estão aparecendo.
     return (
-        <div style={{
-            fontSize: '300%',
-            fontFamily: 'Helvetica Neue', fontStyle: 'normal', fontWeight: 'bold', color: ' #C4C4C4'
-        }} onClick={mostrarModal} ><FontAwesomeIcon icon={faBars} className="fa-lm" /></div>,
-
         props.contatos.map(contato =>
             <div key={contato.id} data-testid="contatos">
                 <div>
@@ -62,7 +54,7 @@ function Aside(props) {
                             height: '6vh', width: '40px'
                         }}></div>
 
-                        <h1 className="text-center" className="col-5 ml-3 align-self-center " style={{
+                        <h1 className="text-center" className="col-6 ml-3 align-self-center " style={{
                             fontSize: '90%',
                             fontFamily: ' Arial, Helvetica, sans-serif', fontStyle: 'normal', fontWeight: 'bold', color: '#000000'
                         }}>{contato.name}</h1>
@@ -72,19 +64,29 @@ function Aside(props) {
                             fontFamily: 'Helvetica Neue', fontStyle: 'normal', fontWeight: 'bold', color: ' #C4C4C4'
                         }} >{contato.time}</h1>
 
-                        <h1 className="col align-self-end" style={{
+                         <div  className="row"> 
+                        <h1 className="col align-self-end ">
+                        <RemoverContato contatos={contatos} carregarContatos={props.carregarContatos}/>
+                        </h1>
+
+                        <h1 className="col align-self-end">
+                        <AtualizarContato contatos={contatos} carregarContato={props.carregarContato}/>
+                        </h1>
+
+                        <h1 className="col p-3" style={{
                             fontSize: '110%',
                             fontFamily: 'Helvetica Neue', fontStyle: 'normal', fontWeight: 'bold', color: ' #C4C4C4'
-                        }} onClick={mostrarModal} ><FontAwesomeIcon icon={faBars} className="fa-lm" /></h1>
+                        }} onClick={mostrarModal} ><FontAwesomeIcon icon={faPlus} className="fa-lm" /></h1>
+                        </div> 
 
                         <hr className="row mt-1 " style={{
-                            width: '97%',
+                            width: '90%',
                             height: '1px', background: '#F7F7F7'
                         }} />
 
                     </div>
 
-                   
+                    
 
                     <Modal show={exibirModal} onHide={handleFecharModal} data-testid="modal">
                         <Modal.Header closeButton>
@@ -114,11 +116,11 @@ function Aside(props) {
                                     type="submit"
                                     data-testid="btn-cadastrar"
                                 >
-                                    Cadastrar
+                                    Adicionar
                                 </Button>
 
                             </Form>
-              &nbsp;
+                            &nbsp;
               <Button onClick={handleFecharModal} className="btn btn-light">Voltar</Button>
                         </Modal.Footer>
                     </Modal>
@@ -127,7 +129,7 @@ function Aside(props) {
 
             </div>
         )
-    )                   
+    )
 }
 
 export default Aside;
