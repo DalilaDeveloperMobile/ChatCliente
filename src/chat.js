@@ -21,11 +21,11 @@ import axios from 'axios';
 
 
 //const useStyles = makeStyles((theme) =>({
-  //main
- // areaMain: {
- //   minHeight: '100vh',
- // },
-  //Pesquisa Contatos
+//main
+// areaMain: {
+//   minHeight: '100vh',
+// },
+//Pesquisa Contatos
 //  divInput1: {
 //    backgroundColor: '#F7F7F7',
 //    height: '40px',
@@ -36,7 +36,7 @@ import axios from 'axios';
 //}));
 
 function Chat() {
-//  const classes = useStyles();
+  //  const classes = useStyles();
 
 
   // const {mensagem} = props;
@@ -113,37 +113,42 @@ function Chat() {
   return (
     <div className="container-fluid">
       <div className="row">
-        <header className="col-sm-12" style={{backgroundColor: '#eeeeee',
-         height: '9vh'}}>
+        <header className="col-sm-12" style={{
+          backgroundColor: '#eeeeee',
+          height: '9vh'
+        }}>
           <Header />
         </header>
       </div>
 
-      <div className="row" >
-        <div className=" pt-1" style={{backgroundColor: '#F7F7F7',
-          height: '40px'}}>
-          <input className="col-3" style={{width: '23%'}} 
-            // LISTAR_CONTATOS.
-            value={filtroContato}
-            onChange={handleFiltrar}
-            className="filtro-contato"
-            totalContatos={totalContatos}
-          />
-        </div>
-      </div>
-
       <div className="row">
-        <aside className="col-sm-3" style={{ backgroundColor: '#FFFFFF',  minHeight: '100vh'}}>
+        <aside className="col-sm-3" style={{ backgroundColor: '#FFFFFF', minHeight: '85vh' }}>
+
+          <div className="row" >
+            <div className=" pt-1" style={{
+              backgroundColor: '#F7F7F7',
+              height: '40px'
+            }}>
+              <input placeholder="Pesquisar contato" style={{ width: '100%' }}
+                // LISTAR_CONTATOS.
+                value={filtroContato}
+                onChange={handleFiltrar}
+                className="filtro-contato"
+                totalContatos={totalContatos}
+              />
+            </div>
+          </div>
+
           <Aside
             setContatos={setContatos}
             contatos={contatos}
             recarregarContatos={setCarregarContatos} />
         </aside>
 
-        <main className="col-sm-9" style={{ backgroundColor: '#F7F7F7', minHeight: '100vh'}}>
+        <main className="col-sm-9" style={{ backgroundColor: '#F7F7F7', minHeight: '85vh' }}>
 
-          <div className="p-1 d-flex justify-content-center" style={{ backgroundColor: '#F7F7F7', height: '40px'}}>
-            <input className="col-3" style={{ width: '40%', backgroundColor: '#F7F7F7' }}
+          <div className="p-1 d-flex justify-content-center" style={{ backgroundColor: '#F7F7F7', height: '40px' }}>
+            <input placeholder="Pesquisar mensagem" className="col-3" style={{ width: '40%', backgroundColor: '#F7F7F7' }}
               // LISTAR_MENSAGENS.
               value={filtroMensagems}
               onChange={handleFiltrarMensagens}
@@ -152,9 +157,11 @@ function Chat() {
             />
           </div>
 
-          <Mensagems
-            mensagems={mensagems}
-            recarregarMensagems={setCarregarMensagems} />
+        
+            <Mensagems
+              mensagems={mensagems}
+              recarregarMensagems={setCarregarMensagems} />
+         
 
         </main>
       </div>
