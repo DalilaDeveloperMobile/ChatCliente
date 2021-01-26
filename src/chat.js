@@ -19,12 +19,12 @@ import Mensagems from './componentes/main/mensagens';
 import axios from 'axios';
 
 
+
 //const useStyles = makeStyles((theme) =>({
-  //Header
-//  areaHeader: {
-//    backgroundColor: '#eeeeee',
-//    height: '9vh',
-//  },
+  //main
+ // areaMain: {
+ //   minHeight: '100vh',
+ // },
   //Pesquisa Contatos
 //  divInput1: {
 //    backgroundColor: '#F7F7F7',
@@ -132,17 +132,17 @@ function Chat() {
         </div>
       </div>
 
-      <div className="row" >
-        <aside className="col-sm-3" style={{ backgroundColor: '#FFFFFF' }}>
+      <div className="row">
+        <aside className="col-sm-3" style={{ backgroundColor: '#FFFFFF',  minHeight: '100vh'}}>
           <Aside
             setContatos={setContatos}
             contatos={contatos}
             recarregarContatos={setCarregarContatos} />
         </aside>
 
-        <main className="col-sm-9" style={{ backgroundColor: '#F7F7F7' }}>
+        <main className="col-sm-9" style={{ backgroundColor: '#F7F7F7', minHeight: '100vh'}}>
 
-          <div className="p-1 d-flex justify-content-center" style={{ backgroundColor: '#F7F7F7', height: '40px' }}>
+          <div className="p-1 d-flex justify-content-center" style={{ backgroundColor: '#F7F7F7', height: '40px'}}>
             <input className="col-3" style={{ width: '40%', backgroundColor: '#F7F7F7' }}
               // LISTAR_MENSAGENS.
               value={filtroMensagems}
