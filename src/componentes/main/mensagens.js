@@ -114,7 +114,7 @@ function Mensagems(props) {
                 }}>
                     <form onSubmit={cadastrar}>
                         <div className="row justify-content-center mt-1 " >
-                            <textarea value={mensagems} onChange={handleTxtMensagem} type="text"
+                            <textarea placeholder="Digite uma mensagem" value={mensagems} onChange={handleTxtMensagem} type="text"
                                 className="col-8 mt-1 " style={{
                                     width: '10%', height: '6.2vh', backgroundColor: '#FFFFFF',
                                     borderRadius: '4px', borderColor: '#FFFFFF'
