@@ -1,45 +1,14 @@
 import React, { useState, useEffect } from 'react';
 //import { makeStyles } from '@material-ui/styles';
+//import { Container } from '@material-ui/core';
 import './chat.css';
 import Header from './componentes/header';
 import Aside from './componentes/aside';
-//import Main from './componentes/main';
-//import Footer   from './componentes/footer';
-//import contacts from '../src/data/contacts.json';
-//import message from '../src/data/message.json';
-//import MessageLeft from './componentes/main/MessageLeft';
-//import MessageRight from './componentes/main/MessageRight';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-//import Mensagens from '../src/models/mensagens.model';
 import Mensagems from './componentes/main/mensagens';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 import axios from 'axios';
 
-
-
-//const useStyles = makeStyles((theme) =>({
-//main
-// areaMain: {
-//   minHeight: '100vh',
-// },
-//Pesquisa Contatos
-//  divInput1: {
-//    backgroundColor: '#F7F7F7',
-//    height: '40px',
-//  },
-//  input1: {
-//    width: '25vh',
-//  },
-//}));
-
 function Chat() {
-  //  const classes = useStyles();
-
-
-  // const {mensagem} = props;
 
   // LISTAR_CONTATOS.
   const API_URL_LISTAR_CONTATOS = 'http://localhost:3001/chat-contatos';
@@ -106,30 +75,28 @@ function Chat() {
     setCarregarMensagems(true);
   }
 
-  //  const FiltrarContacts = (text) => {
-  //    setContacts(contacts.filter((c) => c.name.toUpperCase().includes(text.toUpperCase())));
-  //  }
-
   return (
     <div className="container-fluid">
       <div className="row">
-        <header className="col-sm-12" style={{
-          backgroundColor: '#eeeeee',
-          height: '9vh'
-        }}>
+        <header className="col-sm-12">
+          <div className="divInput1" className="col-sm-6 p-1 offset-sm-5">
+            <input id="Input1Header" placeholder="&#xF002; Pesquisar mensagem"
+              // LISTAR_MENSAGENS.
+              value={filtroMensagems}
+              onChange={handleFiltrarMensagens}
+              className="filtro-mensagem"
+              totalContatos={totalMensagems}
+            />
+          </div>
           <Header />
         </header>
       </div>
 
       <div className="row">
-        <aside className="col-sm-3" style={{ backgroundColor: '#FFFFFF', minHeight: '85vh' }}>
-
+        <aside className="col-sm-3">
           <div className="row" >
-            <div className=" pt-1" style={{
-              backgroundColor: '#F7F7F7',
-              height: '40px'
-            }}>
-              <input placeholder="Pesquisar contato" style={{ width: '100%' }}
+            <div className="p-1" className="divInput2">
+              <input id="Input2Aside" placeholder="&#xF002; Pesquisar contato"
                 // LISTAR_CONTATOS.
                 value={filtroContato}
                 onChange={handleFiltrar}
@@ -138,37 +105,19 @@ function Chat() {
               />
             </div>
           </div>
-
           <Aside
             setContatos={setContatos}
             contatos={contatos}
             recarregarContatos={setCarregarContatos} />
         </aside>
 
-        <main className="col-sm-9" style={{ backgroundColor: '#F7F7F7', minHeight: '85vh' }}>
-
-          <div className="p-1 d-flex justify-content-center" style={{ backgroundColor: '#F7F7F7', height: '40px' }}>
-            <input placeholder="Pesquisar mensagem" className="col-3" style={{ width: '40%', backgroundColor: '#F7F7F7' }}
-              // LISTAR_MENSAGENS.
-              value={filtroMensagems}
-              onChange={handleFiltrarMensagens}
-              className="filtro-mensagem"
-              totalContatos={totalMensagems}
-            />
-          </div>
-
-        
-            <Mensagems
-              mensagems={mensagems}
-              recarregarMensagems={setCarregarMensagems} />
-         
-
+        <main className="col-sm-9">
+          <Mensagems
+            mensagems={mensagems}
+            recarregarMensagems={setCarregarMensagems} />
         </main>
       </div>
     </div>
-
-    // setLiveMessage={setLiveMessage}
-
   );
 };
 

@@ -3,6 +3,7 @@ import { Modal, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import './main.css';
 
 // Remover ainda não funciona
 function RemoverMensagens(props) {
@@ -10,7 +11,6 @@ function RemoverMensagens(props) {
     const API_URL_REMOVER_MENSAGENS = 'http://localhost:3001/chat-mensagens/';
 
     const [exibirModal, setExibirModal] = useState(false);
-   
 
     function handleAbrirModal(event) {
         event.preventDefault();
@@ -21,7 +21,6 @@ function RemoverMensagens(props) {
         setExibirModal(false);
     }
 
-
     async function handleRemoverMensagens(event) {
         try {
             await axios.delete(API_URL_REMOVER_MENSAGENS + props.mensagems.id);
@@ -29,17 +28,13 @@ function RemoverMensagens(props) {
             props.recarregarMensagens(true);
         } catch (err) {
             setExibirModal(false);
-           
+
         }
     }
 
     return (
         <span>
-            <h1 style={{
-                fontSize: '40%',
-                fontFamily: 'Helvetica Neue', fontStyle: 'normal', fontWeight: 'bold', color: '#000'
-            }} className="btn-sm"
-                onClick={handleAbrirModal}
+            <h1 id="ItemRemoverMsg" className="btn-sm" onClick={handleAbrirModal}
                 data-testid="btn-abrir-modal">
                 <FontAwesomeIcon icon={faTrashAlt} className="fa-lm" />
             </h1>
@@ -67,6 +62,5 @@ function RemoverMensagens(props) {
         </span>
     );
 }
-
 
 export default RemoverMensagens;

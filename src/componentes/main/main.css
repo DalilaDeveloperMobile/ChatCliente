@@ -1,0 +1,68 @@
+/* Balões Mensagens*/
+/* Balões Esquerda*/
+#balaoEsq{
+    background: #FFFFFF;
+    border-Radius: 10px 10px 10px 0px;
+}
+#balaoMsgEsq{
+    font-Style: normal;
+    font-Size: 15px;
+    line-Height: 20px;
+    color: #333333;
+}
+#balaoTimeEsq{
+    font-Style: normal;
+    font-Size: 13px;
+    text-Align: right; 
+    line-Height: 20px;
+    color: #9A9A9A;
+}
+/* Balões Mensagens*/
+/* Balões Direita*/
+#balaoDir{
+    background: #DCF8C6;
+    border-Radius: 10px 10px 10px 0px;
+}
+#balaoMsgDir{
+    font-Style: normal;
+    font-Size: 15px;
+    line-Height: 20px;
+    color: #333333;
+}
+#balaoTimeDir{
+    font-Style: normal;
+    font-Size: 13px; 
+    text-Align: right; 
+    line-Height: 20px;
+    color: #9A9A9A;
+}
+/* Input Mensagens balão*/
+#fundoInput{
+    position: absolute; 
+    bottom: 0;
+    width: 100%;
+    background-Color: #F5F1EE;
+    height: 10vh;
+}
+#textInput{
+    border-Radius: 10px; 
+    font-Family: Arial, FontAwesome;
+    width: 10%;
+    height: 6vh;
+    background-Color: #FFFFFF;
+    border-Color: #FFFFFF;
+}
+#botaoInput{
+    width: 20%; 
+    height: 6px; 
+    background-Color: #F5F1EE;
+    border-Color: #F5F1EE;
+}
+/* Item Remover Mensagem */
+#ItemRemoverMsg{
+    font-Size: 40%;
+    font-Family: Helvetica Neue;
+    font-Style: normal; 
+    font-Weight: bold;
+    color: #000;
+}

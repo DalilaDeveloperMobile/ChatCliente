@@ -60,10 +60,7 @@ function AtualizarContato(props) {
 
     return (
         <span>
-            <h1 style={{
-                fontSize: '50%',
-                fontFamily: 'Helvetica Neue', fontStyle: 'normal', fontWeight: 'bold', color: ' #C4C4C4'
-            }} className="btn-sm" onClick={handleAbrirModal}
+            <h1 id="ItemAtualizarCont" className="btn-sm" onClick={handleAbrirModal}
                 data-testid="btn-abrir-modal">
                 <FontAwesomeIcon icon={faEdit} className="fa-lm" />
             </h1>
@@ -73,7 +70,6 @@ function AtualizarContato(props) {
                 </Modal.Header>
                 <Modal.Body>
                     <Form.Control
-
                         type="text"
                         placeholder="Digite o Contato"
                         minLength="5"
@@ -84,12 +80,11 @@ function AtualizarContato(props) {
                         data-testid="txt-tarefa" />
                     <Form.Control.Feedback type="invalid">
                         A tarefa deve conter ao menos 5 caracteres.
-     </Form.Control.Feedback>
+                    </Form.Control.Feedback>
                 </Modal.Body>
                 <Modal.Footer>
                     <Form onSubmit={atualizar} validated={formValidado}
                         noValidate >
-
                         <Button
                             variant="primary"
                             type="submit"
@@ -98,8 +93,8 @@ function AtualizarContato(props) {
                             Atualizar
                         </Button>
                   </Form>
-        &nbsp;
-<Button onClick={handleFecharModal} className="btn btn-light">Voltar</Button>
+              &nbsp;
+            <Button onClick={handleFecharModal} className="btn btn-light">Voltar</Button>
                 </Modal.Footer>
             </Modal>
         </span>

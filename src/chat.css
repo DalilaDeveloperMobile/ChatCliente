@@ -1,58 +1,42 @@
-*, body{
-    margin: 0;
-    padding: 0;
+* html body {
+    padding: 0px;
+    margin: 0px;
 }
-
-/*.HeaderConteiner{
+/* Página de Renderização */
+/* Header */
+header{
+    background-color: #eeeeee; 
+    height: 14vh;
+}
+.divInput1{
+    height: 40px;
+}
+#Input1Header{
+    font-Family: Arial, FontAwesome;
+    border-Radius: 10px; 
+    text-Align: center;
+    width: 40%;
+    background-Color: #F7F7F7; 
+}
+/* Aside */
+aside{
+    background-Color: #FFFFFF;
+    min-Height: 85vh;
+}
+.divInput2{
+    background-color: #F7F7F7;
+    height: 40px;
+    padding-top: 4px;
+}
+#Input2Aside{
+    border-Radius: 10px;
     width: 100%;
-    height: 50px;
-    display: flex;
-    flex-direction: row;
-    background: #eeeeee;
-    justify-content: space-between;
-    align-items: center;    
-     
+    text-Align: center;
+    font-Family: Arial, FontAwesome;
+}
+/* Main */
+main{
+    background-color: #F7F7F7;
+    min-Height: 85vh; 
 }
 
-.FotoItem1{
-    display: flex;
-    margin: 5px;
-    width: 40px;
-    height: 40px;
-
-    background: #c4c4c4;
-}
-
-.espacoItem2{
-    display: flex;
-
-    
-     width: 1px;
-     height: 98%;
-     
-     
-     
-
-     background: rgba(0, 0, 0, 0.08); 
-}
-
-.FotoItem3{
-    width: 40px;
-    height: 40px;
-
-    background: #c4c4c4;
-}
-
-.NomeItem4{
-    width: 64%;
-    height: 20px;
-
-    font-family: Helvetica Neue, Arial;
-    font-style: normal;
-    font-weight: 550;
-    font-size: 14px;
-    line-height: 20px;
-    /* identical to box height, or 143% 
-  
-    color: #000000;
-}*/

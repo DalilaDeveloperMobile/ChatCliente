@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import Mensagens from '../../models/mensagens.model';
+import './main.css';
 //import RemoverMensagens from '../main/remover-mensagens';
 
 import axios from 'axios';
@@ -36,8 +37,8 @@ function Mensagems(props) {
 
 
     // <h1 className="col align-self-end ">
-   // <RemoverMensagens mensagems={mensagems} carregarMensagens={props.carregarMensagens} />
-   // </h1>
+    // <RemoverMensagens mensagems={mensagems} carregarMensagens={props.carregarMensagens} />
+    // </h1>
     // As horas das mensagens não estão aparecendo.
     return (
         <div>
@@ -47,58 +48,20 @@ function Mensagems(props) {
 
                     <div key={mensagem.id} className="d-flex justify-content-start mt-2">
                         <div className="row-cols-auto">
-                            <div className="col" style={{
-                                background: '#FFFFFF',
-                                borderRadius: '10px 10px 10px 0px'
-                            }}>
-
-                                <h6 className="pt-2" style={{
-                                    fontStyle: 'normal',
-                                    fontSize: '15px', lineHeight: '20px',
-                                    color: '#333333'
-                                }}>{mensagem.descricao}</h6>
-
-                               
-
-                                <h6 style={{
-                                    fontStyle: 'normal',
-                                    fontSize: '13px', textAlign: 'right', lineHeight: '20px',
-                                    color: '#9A9A9A'
-                                }}>{mensagem.time}</h6>
-
+                            <div id="balaoEsq" className="col">
+                                <h6 id="balaoMsgEsq" className="pt-2">{mensagem.descricao}</h6>
+                                <h6 id="balaoTimeEsq">{mensagem.time}</h6>
                             </div>
                         </div>
                     </div>
                     :
                     <div key={mensagem.id} className="d-flex justify-content-end mt-2">
                         <div className="row-cols-auto">
-                            <div className="col" style={{
-                                background: '#DCF8C6',
-                                borderRadius: '10px 10px 10px 0px'
-                            }}>
-                               
-                                <h6 className="pt-2" style={{
-                                    fontStyle: 'normal',
-                                    fontSize: '15px', lineHeight: '20px',
-                                    color: '#333333'
-                                }}>{mensagem.descricao}</h6 >
-
-                               
-                                
-
-                                <h6 style={{
-                                    fontStyle: 'normal',
-                                    fontSize: '13px', textAlign: 'right', lineHeight: '20px',
-                                    color: '#9A9A9A'
-                                }}>{mensagem.time}</h6>
-                                
-
+                            <div id="balaoDir" className="col">
+                                <h6 id="balaoMsgDir" className="pt-2">{mensagem.descricao}</h6 >
+                                <h6 id="balaoTimeDir">{mensagem.time}</h6>
                             </div>
-
-
                         </div>
-
-
                     </div>
             )
             }
@@ -108,24 +71,14 @@ function Mensagems(props) {
             <br />
 
             <div className="row">
-                <footer className="col" style={{
-                    position: 'absolute', bottom: '0', width: '100%',
-                    backgroundColor: '#F5F1EE', height: '10vh'
-                }}>
+                <footer id="fundoInput" className="col">
                     <form onSubmit={cadastrar}>
                         <div className="row justify-content-center mt-1 " >
-                            <textarea placeholder="Digite uma mensagem" value={mensagems} onChange={handleTxtMensagem} type="text"
-                                className="col-8 mt-1 " style={{
-                                    width: '10%', height: '6.2vh', backgroundColor: '#FFFFFF',
-                                    borderRadius: '4px', borderColor: '#FFFFFF'
-                                }}>
+                            <textarea id="textInput" placeholder="Digite uma mensagem" value={mensagems} onChange={handleTxtMensagem} type="text"
+                                className="col-8 mt-1">
                             </textarea>
-
-                            <button type="button" type="submit" className="col-4" className="btn btn-light"
-                                value="Submit" style={{
-                                    width: '20%', height: '6px', backgroundColor: '#F5F1EE',
-                                    borderColor: '#F5F1EE'
-                                }}>
+                            <button id="botaoInput" type="button" type="submit" className="col-4" className="btn btn-light"
+                                value="Submit">
                                 <FontAwesomeIcon icon={faPlay} className="fa-lg" />
                             </button>
                         </div>
@@ -133,9 +86,7 @@ function Mensagems(props) {
                 </footer>
             </div>
         </div>
-
     )
-
 }
 
 export default Mensagems;

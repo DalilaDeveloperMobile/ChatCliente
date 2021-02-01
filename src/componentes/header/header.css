@@ -1,0 +1,19 @@
+/* Conteúdo do Header */
+#foto1Header{
+    margin: 6px;
+    background-color: #C4C4C4;
+    height: 6vh;
+    width: 40px;
+  }
+#foto2Header{
+  background-color: #C4C4C4;
+  height: 6vh;
+  width: 40px; 
+}  
+#nomeHeader{
+  font-Size: 90%;
+  font-Family:  Arial, Helvetica, sans-serif; 
+  font-Style: normal;
+  font-Weight: bold; 
+  color: #000000;
+}

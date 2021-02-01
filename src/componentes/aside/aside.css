@@ -1,0 +1,64 @@
+/* Contatos do Chat */
+#fotosAside{
+    margin: 5px;
+    background-Color: #C4C4C4;
+    height: 6vh;
+    width: 40px;
+}
+#contatosAside{
+    font-Size: 90%;
+    font-Family: Arial, Helvetica, sans-serif;
+    font-Style: normal;
+    font-Weight: bold; 
+    color: #000000;
+}
+#timeAside{
+    font-Size: 87%;
+    font-Family: Helvetica Neue;
+    font-Style: normal;
+    font-Weight: bold;
+    color: #C4C4C4;
+}
+#linhaAside1{
+    width: 90%;
+    height: 1px;
+    background: #F7F7F7;
+    margin: 0 auto;
+}
+#addContatosAside{
+    font-Size: 110%;
+    font-Family: Helvetica Neue; 
+    font-Style: normal;
+    font-Weight: bold; 
+    color: #C4C4C4;
+}
+#linhaAside2{
+    width: 90%;
+    height: 1px;
+    background: #F7F7F7;
+    margin: 0 auto; 
+}
+/* Item Adicionar Contatos */
+#ItemAdicionarCont{
+    font-Size: 50%;
+    font-Family: Helvetica Neue; 
+    font-Style: normal;
+    font-Weight: bold; 
+    color: #C4C4C4;
+}
+/* Item Atualizar Contatos */
+#ItemAtualizarCont{
+    font-Size: 50%;
+    font-Family: Helvetica Neue;
+    font-Style: normal;
+    font-Weight: bold;
+    color: #C4C4C4;
+}
+/* Item Remover Contatos */
+#ItemRemoverCont{
+    font-Size: 50%;
+    font-Family: Helvetica Neue;
+    font-Style: normal;
+    font-Weight: bold;
+    color:  #C4C4C4;
+}

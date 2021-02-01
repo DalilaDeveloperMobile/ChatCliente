@@ -10,7 +10,7 @@ function RemoverContato(props) {
     const API_URL_REMOVER_CONTANTO = 'http://localhost:3001/chat-contatos/';
 
     const [exibirModal, setExibirModal] = useState(false);
-   
+
 
     function handleAbrirModal(event) {
         event.preventDefault();
@@ -29,16 +29,13 @@ function RemoverContato(props) {
             props.recarregarContatos(true);
         } catch (err) {
             setExibirModal(false);
-           
+
         }
     }
 
     return (
         <span>
-            <h1 style={{
-                fontSize: '50%',
-                fontFamily: 'Helvetica Neue', fontStyle: 'normal', fontWeight: 'bold', color: ' #C4C4C4'
-            }} className="btn-sm"
+            <h1 id="ItemRemoverCont" className="btn-sm"
                 onClick={handleAbrirModal}
                 data-testid="btn-abrir-modal">
                 <FontAwesomeIcon icon={faTrashAlt} className="fa-lm" />
@@ -49,9 +46,9 @@ function RemoverContato(props) {
                     <Modal.Title>Remover Contato</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    Deseja realmente remover a seguinte tarefa?
+                    Deseja realmente remover o seguinte contato?
                  <br />
-                    <strong>{props.contatos.nome}</strong>
+                    <strong>{props.contatos.name}</strong>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary"
@@ -67,6 +64,5 @@ function RemoverContato(props) {
         </span>
     );
 }
-
 
 export default RemoverContato;
