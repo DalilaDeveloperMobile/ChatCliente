@@ -6,17 +6,7 @@
 /* Header */
 header{
     background-color: #eeeeee; 
-    height: 14vh;
-}
-.divInput1{
-    height: 40px;
-}
-#Input1Header{
-    font-Family: Arial, FontAwesome;
-    border-Radius: 10px; 
-    text-Align: center;
-    width: 40%;
-    background-Color: #F7F7F7; 
+    min-height: 8vh;
 }
 /* Aside */
 aside{
@@ -38,5 +28,17 @@ aside{
 main{
     background-color: #F7F7F7;
     min-Height: 85vh; 
+}
+.divInput1{
+    height: 40px; 
+    text-Align: center;
+    align-items: center;
+}
+#Input1Main{
+    font-Family: Arial, FontAwesome;
+    border-Radius: 10px; 
+    text-Align: center;
+    width: 58%;
+    background-Color: #F7F7F7; 
 }
 

@@ -1,14 +1,14 @@
 /* Conteúdo do Header */
 #foto1Header{
     margin: 6px;
-    background-color: #C4C4C4;
-    height: 6vh;
-    width: 40px;
+    min-height: 6vh;
+    width: 64px;
+    border-Radius: 50%;
   }
 #foto2Header{
-  background-color: #C4C4C4;
-  height: 6vh;
-  width: 40px; 
+  min-height: 6vh;
+  width: 64px; 
+  border-Radius: 50%;
 }  
 #nomeHeader{
   font-Size: 90%;

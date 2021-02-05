@@ -2,31 +2,37 @@
     {
         "id": 1,
         "name": "John Doe",
-        "time": "18:10"
+        "time": "18:10",
+        "foto": "" 
     },
     {
         "id": 2,
         "name": "Diná Moura",
-        "time": "14:00"
+        "time": "14:00",
+        "foto": ""
     },
     {
         "id": 3,
         "name": "Lucas Moura",
-        "time": "13:51"
+        "time": "13:51",
+        "foto": ""
     },
     {
         "id": 4,
         "name": "Jonas Falcão",
-        "time": "20:00"
+        "time": "20:00",
+        "foto": ""
     },
     {
         "id": 5,
         "name": "Mariana Brito",
-        "time": "08:20"
+        "time": "08:20",
+        "foto": ""
     },
     {
         "id": 6,
         "name": "Dalila Custódio",
-        "time": "00:09"
+        "time": "00:09",
+        "foto": "./images/232.svg"
     }
 ]

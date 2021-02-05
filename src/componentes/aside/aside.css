@@ -1,9 +1,9 @@
 /* Contatos do Chat */
 #fotosAside{
     margin: 5px;
-    background-Color: #C4C4C4;
-    height: 6vh;
-    width: 40px;
+    min-height: 6vh;
+    width: 64px;
+    border-Radius: 50%;  
 }
 #contatosAside{
     font-Size: 90%;
@@ -11,6 +11,7 @@
     font-Style: normal;
     font-Weight: bold; 
     color: #000000;
+    text-Align: center;
 }
 #timeAside{
     font-Size: 87%;
@@ -18,12 +19,14 @@
     font-Style: normal;
     font-Weight: bold;
     color: #C4C4C4;
+    text-Align: center;
 }
 #linhaAside1{
     width: 90%;
     height: 1px;
     background: #F7F7F7;
     margin: 0 auto;
+    text-Align: center;
 }
 #addContatosAside{
     font-Size: 110%;
@@ -31,12 +34,14 @@
     font-Style: normal;
     font-Weight: bold; 
     color: #C4C4C4;
+    text-Align: center;
 }
 #linhaAside2{
     width: 90%;
     height: 1px;
     background: #F7F7F7;
     margin: 0 auto; 
+    text-Align: center;
 }
 /* Item Adicionar Contatos */
 #ItemAdicionarCont{
@@ -45,6 +50,7 @@
     font-Style: normal;
     font-Weight: bold; 
     color: #C4C4C4;
+    text-Align: center;
 }
 /* Item Atualizar Contatos */
 #ItemAtualizarCont{
@@ -53,6 +59,7 @@
     font-Style: normal;
     font-Weight: bold;
     color: #C4C4C4;
+    text-Align: center;
 }
 /* Item Remover Contatos */
 #ItemRemoverCont{
@@ -61,4 +68,5 @@
     font-Style: normal;
     font-Weight: bold;
     color:  #C4C4C4;
+    text-Align: center;
 }

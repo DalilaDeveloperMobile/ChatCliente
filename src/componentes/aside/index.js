@@ -7,10 +7,13 @@ import AtualizarContato from '../aside/atualizar-contatos';
 import RemoverContato from '../aside/remover-contatos';
 import axios from 'axios';
 import './aside.css';
+import Images from '../../images/contatos.png';
 
 function Aside(props) {
 
-    const API_URL_CADASTRAR_CONTATOS = 'http://localhost:3001/chat-contatos';
+    const API_URL = 'http://localhost:3001';
+
+    const API_URL_CADASTRAR_CONTATOS = API_URL + '/chat-contatos';
 
     const [contatos, setContatos] = useState('');
     const [formValidado, setFormValidado] = useState(false);
@@ -44,14 +47,26 @@ function Aside(props) {
         setExibirModal(false);
     }
 
-    // As horas dos contatos não estão aparecendo.
+   // function mostrarImagem(foto){
+   //   if(foto){
+   //       return(   );
+   //   }else
+   //       return( <img src={Images} id="fotosAside"/>);
+   // }
+
+    //{mostrarImagem(contato.foto ? contato.foto : false)}
+   // <img src={ `http://localhost:3001/images/%3C%=%20foto[i].imagem%20%%3E${contato.foto}` } alt="fotoContato">{contato.foto}</img>
+    //  <img src={ `http://localhost:3001/chat-contatos/images/%3C%=%20foto[i].imagem%20%%3E` } ></img> As horas dos contatos não estão aparecendo.
     return (
         props.contatos.map(contato =>
             <div key={contato.id} data-testid="contatos">
                 <div>
                     <div className="row mt-1">
-                        <div id="fotosAside" className="Item1 col-xs align-self-center">
-                        </div>
+    
+                        
+                        {contato.foto?<img className="Item1 col" id="fotosAside" src={API_URL + '/images/' + contato.foto}/>
+                        :<img className="Item1 col" src={Images} id="fotosAside"/>}
+                       
                         <h1 id="contatosAside" className="text-center" className="col-6 ml-3 align-self-center">
                             {contato.name}</h1>
                         <h1 id="timeAside" className="col align-self-end">

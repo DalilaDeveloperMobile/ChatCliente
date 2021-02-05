@@ -79,15 +79,6 @@ function Chat() {
     <div className="container-fluid">
       <div className="row">
         <header className="col-sm-12">
-          <div className="divInput1" className="col-sm-6 p-1 offset-sm-5">
-            <input id="Input1Header" placeholder="&#xF002; Pesquisar mensagem"
-              // LISTAR_MENSAGENS.
-              value={filtroMensagems}
-              onChange={handleFiltrarMensagens}
-              className="filtro-mensagem"
-              totalContatos={totalMensagems}
-            />
-          </div>
           <Header />
         </header>
       </div>
@@ -112,6 +103,15 @@ function Chat() {
         </aside>
 
         <main className="col-sm-9">
+        <div className="divInput1" className="row justify-content-center p-1">
+            <input id="Input1Main" placeholder="&#xF002; Pesquisar mensagem"
+              // LISTAR_MENSAGENS.
+              value={filtroMensagems}
+              onChange={handleFiltrarMensagens}
+              className="filtro-mensagem"
+              totalContatos={totalMensagems}
+            />
+          </div>
           <Mensagems
             mensagems={mensagems}
             recarregarMensagems={setCarregarMensagems} />
