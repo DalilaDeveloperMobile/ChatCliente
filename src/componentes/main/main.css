@@ -36,6 +36,12 @@
     line-Height: 20px;
     color: #9A9A9A;
 }
+#container{
+    min-height: 74vh;
+    overflow-y:scroll;
+    overflow-x: hidden; 
+}
+
 /* Input Mensagens balão*/
 #fundoInput{
     position: absolute; 

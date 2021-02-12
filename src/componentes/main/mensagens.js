@@ -40,17 +40,22 @@ function Mensagems(props) {
     // <RemoverMensagens mensagems={mensagems} carregarMensagens={props.carregarMensagens} />
     // </h1>
     // As horas das mensagens não estão aparecendo.
+   
+    var date = new Date();
+    var horaTime = date.getHours() + ":" + date.getMinutes();
+   
     return (
         <div>
+            <div id="container"> 
             {props.mensagems.map(mensagem =>
 
                 mensagem.isMe === true ?
-
+                   
                     <div key={mensagem.id} className="d-flex justify-content-start mt-2">
                         <div className="row-cols-auto">
                             <div id="balaoEsq" className="col">
                                 <h6 id="balaoMsgEsq" className="pt-2">{mensagem.descricao}</h6>
-                                <h6 id="balaoTimeEsq">{mensagem.time}</h6>
+                                <h6 id="balaoTimeEsq"> {mensagem.time?mensagem.time:horaTime}</h6>
                             </div>
                         </div>
                     </div>
@@ -59,12 +64,14 @@ function Mensagems(props) {
                         <div className="row-cols-auto">
                             <div id="balaoDir" className="col">
                                 <h6 id="balaoMsgDir" className="pt-2">{mensagem.descricao}</h6 >
-                                <h6 id="balaoTimeDir">{mensagem.time}</h6>
+                                <h6 id="balaoTimeDir">{mensagem.time?mensagem.time:horaTime}</h6>
                             </div>
                         </div>
                     </div>
+                   
             )
             }
+             </div>
 
             <br />
             <br />

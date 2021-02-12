@@ -8,7 +8,7 @@ import axios from 'axios';
 // Atualizar ainda não funciona
 function AtualizarContato(props) {
 
-    const API_URL_ATUALIZAR_CONTATOS = 'http://localhost:3001/chat-contatos/id';
+    const API_URL_ATUALIZAR_CONTATOS = 'http://localhost:3001/chat-contatos/:id';
 
     const [contatos, setContatos] = useState('');
     const [formValidado, setFormValidado] = useState(false);
@@ -20,7 +20,7 @@ function AtualizarContato(props) {
     useEffect(() => {
         async function obterContatos() {
             try {
-                let { data } = await axios.get(API_URL_ATUALIZAR_CONTATOS + props.id);
+                let { data } = await axios.get(API_URL_ATUALIZAR_CONTATOS);
                 setContatos(data.name);
             } catch (err) {
 
@@ -38,7 +38,7 @@ function AtualizarContato(props) {
         if (event.currentTarget.checkValidity() === true) {
             try {
                 const contatoAtualizadar = new Contatos(null, contatos, false);
-                await axios.put(API_URL_ATUALIZAR_CONTATOS + props.id, contatoAtualizadar);
+                await axios.put(API_URL_ATUALIZAR_CONTATOS, contatoAtualizadar);
                 setExibirModal(true);
             } catch (err) {
 

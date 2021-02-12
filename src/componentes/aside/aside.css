@@ -1,4 +1,9 @@
 /* Contatos do Chat */
+#container{
+    height: 60px;
+    overflow-y:scroll;
+    overflow-x: hidden;
+}
 #fotosAside{
     margin: 5px;
     min-height: 6vh;

@@ -47,40 +47,45 @@ function Aside(props) {
         setExibirModal(false);
     }
 
-   // function mostrarImagem(foto){
-   //   if(foto){
-   //       return(   );
-   //   }else
-   //       return( <img src={Images} id="fotosAside"/>);
-   // }
+    // function mostrarImagem(foto){
+    //   if(foto){
+    //       return(   );
+    //   }else
+    //       return( <img src={Images} id="fotosAside"/>);
+    // }
 
     //{mostrarImagem(contato.foto ? contato.foto : false)}
-   // <img src={ `http://localhost:3001/images/%3C%=%20foto[i].imagem%20%%3E${contato.foto}` } alt="fotoContato">{contato.foto}</img>
+    // <img src={ `http://localhost:3001/images/%3C%=%20foto[i].imagem%20%%3E${contato.foto}` } alt="fotoContato">{contato.foto}</img>
     //  <img src={ `http://localhost:3001/chat-contatos/images/%3C%=%20foto[i].imagem%20%%3E` } ></img> As horas dos contatos não estão aparecendo.
+
+    var date = new Date();
+    var horaTime = date.getHours() + ":" + date.getMinutes();
+
     return (
         props.contatos.map(contato =>
             <div key={contato.id} data-testid="contatos">
                 <div>
                     <div className="row mt-1">
-    
-                        
-                        {contato.foto?<img className="Item1 col" id="fotosAside" src={API_URL + '/images/' + contato.foto}/>
-                        :<img className="Item1 col" src={Images} id="fotosAside"/>}
-                       
+
+
+                        {contato.foto ? <img className="Item1 col" id="fotosAside" src={API_URL + '/images/' + contato.foto} />
+                            : <img className="Item1 col" src={Images} id="fotosAside" />}
+
                         <h1 id="contatosAside" className="text-center" className="col-6 ml-3 align-self-center">
                             {contato.name}</h1>
                         <h1 id="timeAside" className="col align-self-end">
-                            {contato.time}</h1>
+                            {contato.time ? contato.time : horaTime}</h1>
                         <hr id="linhaAside1" className="row mt-1 " />
                         <div className="row">
                             <h1 className="col align-self-end ">
-                                <RemoverContato contatos={contatos} carregarContatos={props.carregarContatos} />
+                                <RemoverContato contato={contato} recarregarContatos={props.recarregarContatos} />
                             </h1>
                             <h1 className="col align-self-end">
-                                <AtualizarContato contatos={contatos} carregarContato={props.carregarContato} />
+                                <AtualizarContato contato={contato} recarregarContato={props.recarregarContato} />
                             </h1>
                             <h1 id="addContatosAside" className="col p-3" onClick={mostrarModal} >
                                 <FontAwesomeIcon icon={faPlus} className="fa-lm" /></h1>
+
                         </div>
                         <hr id="linhaAside2" className="row mt-1 " />
                     </div>

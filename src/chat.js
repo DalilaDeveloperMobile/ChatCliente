@@ -84,7 +84,7 @@ function Chat() {
       </div>
 
       <div className="row">
-        <aside className="col-sm-3">
+        <aside id="container" className="col-sm-3">
           <div className="row" >
             <div className="p-1" className="divInput2">
               <input id="Input2Aside" placeholder="&#xF002; Pesquisar contato"

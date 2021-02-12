@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
-// Remover ainda não funciona
 function RemoverContato(props) {
 
-    const API_URL_REMOVER_CONTANTO = 'http://localhost:3001/chat-contatos/';
+    const API_URL_REMOVER_CONTATO = 'http://localhost:3001/chat-contatos/';
 
     const [exibirModal, setExibirModal] = useState(false);
 
@@ -22,9 +22,9 @@ function RemoverContato(props) {
     }
 
 
-    async function handleRemoverContato(event) {
+    async function handleRemoverContato() {
         try {
-            await axios.delete(API_URL_REMOVER_CONTANTO + props.contato.id);
+            await axios.delete(API_URL_REMOVER_CONTATO + props.contato.id);
             setExibirModal(false);
             props.recarregarContatos(true);
         } catch (err) {
@@ -48,7 +48,7 @@ function RemoverContato(props) {
                 <Modal.Body>
                     Deseja realmente remover o seguinte contato?
                  <br />
-                    <strong>{props.contatos.name}</strong>
+                    <strong>{props.contato.name}</strong>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary"
@@ -63,6 +63,11 @@ function RemoverContato(props) {
             </Modal>
         </span>
     );
+}
+
+RemoverContato.propTypes = {
+    contato: PropTypes.object.isRequired,
+    recarregarContatos: PropTypes.func.isRequired
 }
 
 export default RemoverContato;
