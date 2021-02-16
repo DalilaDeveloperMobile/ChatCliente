@@ -6,7 +6,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import '../main.css';
 
-// Remover ainda não funciona
+
 function RemoverMensagens(props) {
 
     const API_URL_REMOVER_MENSAGENS = 'http://localhost:3001/chat-mensagens/';
