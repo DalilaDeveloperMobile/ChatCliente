@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Button, Form, Modal } from 'react-bootstrap';
-import Contatos from '../../models/contatos.model';
+import Contatos from '../../../models/contatos.model';
 //import AtualizarContato from '../aside/atualizar-contatos';
 //import RemoverContato from '../aside/remover-contatos';
 import axios from 'axios';

@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+//import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Button, Form, Modal } from 'react-bootstrap';
+//import { A } from 'hookrouter';
 import Contatos from '../../models/contatos.model';
-import AtualizarContato from '../aside/atualizar-contatos';
-import RemoverContato from '../aside/remover-contatos';
+//import PropTypes from 'prop-types';
+import AtualizarContato from '../aside/Atualizar/atualizar-contatos';
+import RemoverContato from '../aside/Remover/remover-contatos';
 import axios from 'axios';
 import './aside.css';
 import Images from '../../images/contatos.png';
@@ -81,8 +84,11 @@ function Aside(props) {
                                 <RemoverContato contato={contato} recarregarContatos={props.recarregarContatos} />
                             </h1>
                             <h1 className="col align-self-end">
-                                <AtualizarContato contato={contato} recarregarContato={props.recarregarContato} />
+                                <AtualizarContato contato={contato} carregarContato={props.carregarContato} />
                             </h1>
+                            {/*<A className="col" href={contato.id}>
+                                <FontAwesomeIcon icon={faEdit}/>
+                             </A>*/}
                             <h1 id="addContatosAside" className="col p-3" onClick={mostrarModal} >
                                 <FontAwesomeIcon icon={faPlus} className="fa-lm" /></h1>
 

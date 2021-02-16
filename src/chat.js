@@ -112,9 +112,10 @@ function Chat() {
               totalContatos={totalMensagems}
             />
           </div>
-          <Mensagems
+         
+         <Mensagems
             mensagems={mensagems}
-            recarregarMensagems={setCarregarMensagems} />
+            recarregarMensagems={setCarregarMensagems} />  
         </main>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Form, Modal } from 'react-bootstrap';
-import Contatos from '../../models/contatos.model';
+import Contatos from '../../../models/contatos.model';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
@@ -8,9 +9,11 @@ import axios from 'axios';
 // Atualizar ainda não funciona
 function AtualizarContato(props) {
 
-    const API_URL_ATUALIZAR_CONTATOS = 'http://localhost:3001/chat-contatos/:id';
+    const API_URL = 'http://localhost:3001';
 
-    const [contatos, setContatos] = useState('');
+    const API_URL_ATUALIZAR_CONTATOS = API_URL + '/chat-contatos/';
+
+    const [contato, setContato] = useState('');
     const [formValidado, setFormValidado] = useState(false);
     const [exibirModal, setExibirModal] = useState(false);
     const [carregarContato, setCarregarContato] = useState(true);
@@ -20,8 +23,8 @@ function AtualizarContato(props) {
     useEffect(() => {
         async function obterContatos() {
             try {
-                let { data } = await axios.get(API_URL_ATUALIZAR_CONTATOS);
-                setContatos(data.name);
+                let { data } = await axios.get(API_URL_ATUALIZAR_CONTATOS + props.name.id);
+                setContato(data.name);
             } catch (err) {
 
             }
@@ -30,15 +33,15 @@ function AtualizarContato(props) {
             obterContatos();
             setCarregarContato(false);
         }
-    }, [carregarContato, props]);
+    }, [carregarContato, props ]);
 
     //  Atualizar Contato
     async function atualizar(event) {
         setFormValidado(true);
         if (event.currentTarget.checkValidity() === true) {
             try {
-                const contatoAtualizadar = new Contatos(null, contatos, false);
-                await axios.put(API_URL_ATUALIZAR_CONTATOS, contatoAtualizadar);
+                const contatoAtualizadar = new Contatos(null, contato, false);
+                await axios.put(API_URL_ATUALIZAR_CONTATOS + props.name.id, contatoAtualizadar);
                 setExibirModal(true);
             } catch (err) {
 
@@ -47,7 +50,7 @@ function AtualizarContato(props) {
     }
 
     function handleTxtAtualizar(event) {
-        setContatos(event.target.value);
+        setContato(event.target.value);
     }
 
     function handleFecharModal() {
@@ -69,13 +72,13 @@ function AtualizarContato(props) {
                     <Modal.Title>Atualizar Contato</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form.Control
+                    <Form.Control 
                         type="text"
                         placeholder="Digite o Contato"
                         minLength="5"
                         maxLength="100"
                         required
-                        value={contatos}
+                        value={contato}
                         onChange={handleTxtAtualizar}
                         data-testid="txt-tarefa" />
                     <Form.Control.Feedback type="invalid">
@@ -83,8 +86,8 @@ function AtualizarContato(props) {
                     </Form.Control.Feedback>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Form onSubmit={atualizar} validated={formValidado}
-                        noValidate >
+                    <Form onSubmit={atualizar} validated={formValidado} noValidate
+                         >
                         <Button
                             variant="primary"
                             type="submit"
@@ -99,6 +102,11 @@ function AtualizarContato(props) {
             </Modal>
         </span>
     );
+}
+
+AtualizarContato.propTypes = {
+    contato: PropTypes.object.isRequired,
+    carregarContato: PropTypes.func.isRequired
 }
 
 export default AtualizarContato;

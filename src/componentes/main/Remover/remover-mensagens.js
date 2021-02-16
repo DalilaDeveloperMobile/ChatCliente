@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import './main.css';
+import '../main.css';
 
 // Remover ainda não funciona
 function RemoverMensagens(props) {
@@ -21,9 +22,10 @@ function RemoverMensagens(props) {
         setExibirModal(false);
     }
 
-    async function handleRemoverMensagens(event) {
+    async function handleRemoverMensagens() {
+        window.location.reload();
         try {
-            await axios.delete(API_URL_REMOVER_MENSAGENS + props.mensagems.id);
+            await axios.delete(API_URL_REMOVER_MENSAGENS + props.mensagem.id);
             setExibirModal(false);
             props.recarregarMensagens(true);
         } catch (err) {
@@ -34,9 +36,9 @@ function RemoverMensagens(props) {
 
     return (
         <span>
-            <h1 id="ItemRemoverMsg" className="btn-sm" onClick={handleAbrirModal}
+            <h1 id="ItemRemoverMsg" onClick={handleAbrirModal}
                 data-testid="btn-abrir-modal">
-                <FontAwesomeIcon icon={faTrashAlt} className="fa-lm" />
+               <FontAwesomeIcon icon={faTrashAlt} className="fa-lm" />
             </h1>
             <Modal show={exibirModal} onHide={handleFecharModal}
                 data-testid="modal">
@@ -44,9 +46,9 @@ function RemoverMensagens(props) {
                     <Modal.Title>Remover Mensagem</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    Deseja realmente remover a seguinte tarefa?
+                    Deseja realmente remover a seguinte Mensagem?
                  <br />
-                    <strong>{props.mensagems.descricao}</strong>
+                    <strong>{props.mensagem.descricao}</strong>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary"
@@ -61,6 +63,11 @@ function RemoverMensagens(props) {
             </Modal>
         </span>
     );
+}
+
+RemoverMensagens.propTypes = {
+    mensagem: PropTypes.object.isRequired,
+    recarregarMensagens: PropTypes.func.isRequired
 }
 
 export default RemoverMensagens;

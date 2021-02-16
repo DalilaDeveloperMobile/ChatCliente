@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPlay } from '@fortawesome/free-solid-svg-icons'; 
 import Mensagens from '../../models/mensagens.model';
+import RemoverMensagens from '../main/Remover/remover-mensagens'
 import './main.css';
 //import RemoverMensagens from '../main/remover-mensagens';
 
 import axios from 'axios';
+
 
 function Mensagems(props) {
 
@@ -35,43 +37,60 @@ function Mensagems(props) {
         setMensagems(event.target.value);
     }
 
-
     // <h1 className="col align-self-end ">
     // <RemoverMensagens mensagems={mensagems} carregarMensagens={props.carregarMensagens} />
     // </h1>
     // As horas das mensagens não estão aparecendo.
-   
+
     var date = new Date();
     var horaTime = date.getHours() + ":" + date.getMinutes();
-   
+    
     return (
         <div>
-            <div id="container"> 
-            {props.mensagems.map(mensagem =>
+            <div id="container">
+                {props.mensagems.map(mensagem =>
 
-                mensagem.isMe === true ?
-                   
-                    <div key={mensagem.id} className="d-flex justify-content-start mt-2">
-                        <div className="row-cols-auto">
-                            <div id="balaoEsq" className="col">
-                                <h6 id="balaoMsgEsq" className="pt-2">{mensagem.descricao}</h6>
-                                <h6 id="balaoTimeEsq"> {mensagem.time?mensagem.time:horaTime}</h6>
+                    mensagem.isMe === true ?
+
+                        <div key={mensagem.id} className="d-flex justify-content-start mt-2">
+                            <div className="row-cols-auto">
+                                <div id="balaoEsq" className="col">
+                                    <h6 id="balaoMsgEsq" className="pt-2">
+                                        {mensagem.descricao}
+                                    </h6>
+                                    <div className="row">             
+                                        <h1 className="col">    
+                                          <RemoverMensagens mensagem={mensagem} recarregarMensagens={props.recarregarMensagens} />
+                                       </h1>
+                                        <h6 id="balaoTimeEsq" className="col">
+                                            {mensagem.time ? mensagem.time : horaTime}
+                                        </h6>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    :
-                    <div key={mensagem.id} className="d-flex justify-content-end mt-2">
-                        <div className="row-cols-auto">
-                            <div id="balaoDir" className="col">
-                                <h6 id="balaoMsgDir" className="pt-2">{mensagem.descricao}</h6 >
-                                <h6 id="balaoTimeDir">{mensagem.time?mensagem.time:horaTime}</h6>
+                        :
+                        <div key={mensagem.id} className="d-flex justify-content-end mt-2">
+                            <div className="row-cols-auto">
+                                <div id="balaoDir" className="col">  
+                                    <h6 id="balaoMsgDir" className="pt-2">
+                                        {mensagem.descricao}
+                                    </h6 >
+                                    <div className="row">             
+                                        <h1 className="col">    
+                                          <RemoverMensagens mensagem={mensagem} recarregarMensagens={props.recarregarMensagens} />
+                                       </h1> 
+                                    <h6 id="balaoTimeDir" className="col">
+                                        {mensagem.time ? mensagem.time : horaTime}
+                                    </h6>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                   
-            )
-            }
-             </div>
+
+                )
+                }  
+            </div>
 
             <br />
             <br />
