@@ -42,6 +42,10 @@
     overflow-x: hidden; 
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+}
+
 /* Input Mensagens balão*/
 #fundoInput{
     position: absolute; 
