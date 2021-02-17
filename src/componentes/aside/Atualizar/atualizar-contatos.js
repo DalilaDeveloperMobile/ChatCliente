@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { Button, Form, Modal } from 'react-bootstrap';
 import Contatos from '../../../models/contatos.model';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
@@ -43,8 +43,9 @@ function AtualizarContato(props) {
                 const contatoAtualizadar = new Contatos(null, contato, false);
                 await axios.put(API_URL_ATUALIZAR_CONTATOS + props.name.id, contatoAtualizadar);
                 setExibirModal(true);
+                props.carregarContato(true);
             } catch (err) {
-
+                setExibirModal(false);
             }
         }
     }
@@ -104,9 +105,9 @@ function AtualizarContato(props) {
     );
 }
 
-AtualizarContato.propTypes = {
-    contato: PropTypes.object.isRequired,
-    carregarContato: PropTypes.func.isRequired
-}
+//AtualizarContato.propTypes = {
+//    contato: PropTypes.object.isRequired,
+//    carregarContato: PropTypes.func.isRequired
+//}
 
 export default AtualizarContato;

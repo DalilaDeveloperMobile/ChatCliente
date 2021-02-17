@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
@@ -65,9 +65,10 @@ function RemoverMensagens(props) {
     );
 }
 
-RemoverMensagens.propTypes = {
-    mensagem: PropTypes.object.isRequired,
-    recarregarMensagens: PropTypes.func.isRequired
-}
+//RemoverMensagens.propTypes = {
+//    mensagem: PropTypes.object.isRequired,
+//    recarregarMensagens: PropTypes.func.isRequired
+//}
 
 export default RemoverMensagens;
+

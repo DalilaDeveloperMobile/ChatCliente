@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
@@ -65,9 +65,9 @@ function RemoverContato(props) {
     );
 }
 
-RemoverContato.propTypes = {
-    contato: PropTypes.object.isRequired,
-    recarregarContatos: PropTypes.func.isRequired
-}
+//RemoverContato.propTypes = {
+//    contato: PropTypes.object.isRequired,
+//    recarregarContatos: PropTypes.func.isRequired
+//}
 
 export default RemoverContato;
