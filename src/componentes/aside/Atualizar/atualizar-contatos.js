@@ -16,7 +16,7 @@ function AtualizarContato(props) {
     const [contato, setContato] = useState('');
     const [formValidado, setFormValidado] = useState(false);
     const [exibirModal, setExibirModal] = useState(false);
-    const [carregarContato, setCarregarContato] = useState(true);
+    const [carregarContatos, setcarregarContatos] = useState(true);
 
 
     //  Atualizar Contato
@@ -29,11 +29,11 @@ function AtualizarContato(props) {
 
             }
         }
-        if (carregarContato) {
+        if (carregarContatos) {
             obterContatos();
-            setCarregarContato(false);
+            setcarregarContatos(false);
         }
-    }, [carregarContato, props ]);
+    }, [recarregarContatos, props ]);
 
     //  Atualizar Contato
     async function atualizar(event) {
@@ -43,7 +43,6 @@ function AtualizarContato(props) {
                 const contatoAtualizadar = new Contatos(null, contato, false);
                 await axios.put(API_URL_ATUALIZAR_CONTATOS + props.name.id, contatoAtualizadar);
                 setExibirModal(true);
-                props.carregarContato(true);
             } catch (err) {
                 setExibirModal(false);
             }
