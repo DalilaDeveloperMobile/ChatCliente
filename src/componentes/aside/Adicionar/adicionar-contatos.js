@@ -23,9 +23,10 @@ function AdicionarContatos(props) {
             try {
                 const novaContato = new Contatos(null, contatos, false);
                 await axios.post(API_URL_CADASTRAR_CONTATOS, novaContato);
-                setExibirModal(true);
+                setExibirModal(false);
+                props.recarregarContatos(true);
             } catch (err) {
-
+                setExibirModal(false);   
             }
         }
     }
@@ -87,5 +88,6 @@ function AdicionarContatos(props) {
         </span>
     )
 }
+
 
 export default AdicionarContatos;
