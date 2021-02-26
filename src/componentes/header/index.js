@@ -4,15 +4,19 @@ import Imagem1 from '../../images/1w.png';
 import Imagem2 from '../../images/232.png';
 //import { makeStyles } from '@material-ui/styles';
 //import { faAlignCenter } from '@fortawesome/free-solid-svg-icons';
-//import AdicionarContatos from '../aside/adicionar-contatos';
+//import AdicionarContatos from '../../componentes/aside/Adicionar/adicionar-contatos';
 
 function Header() {
+
+ 
 
   //const classes = useStyles();
 
   //const {contatos} = props;
 
   //const {carregarContatos} = props;  
+
+ 
 
   return (
 
