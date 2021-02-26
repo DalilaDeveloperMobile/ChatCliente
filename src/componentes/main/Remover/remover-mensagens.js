@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 //import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import '../main.css';
 
 
-function RemoverMensagens(props) {
+ function RemoverMensagens(props) {
 
     const API_URL_REMOVER_MENSAGENS = 'http://localhost:3001/chat-mensagens/';
 
@@ -36,9 +36,9 @@ function RemoverMensagens(props) {
 
     return (
         <span>
-            <h1 id="ItemRemoverMsg" onClick={handleAbrirModal}
+            <h1 onClick={handleAbrirModal}
                 data-testid="btn-abrir-modal">
-               <FontAwesomeIcon icon={faTrashAlt} className="fa-lm" />
+                    Apagar Mensagem
             </h1>
             <Modal show={exibirModal} onHide={handleFecharModal}
                 data-testid="modal">
