@@ -1,27 +1,47 @@
 import React, { useState } from 'react';
+import { OverlayTrigger, Popover } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons'; 
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
+//import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Mensagens from '../../models/mensagens.model';
-import RemoverMensagens from '../main/Remover/remover-mensagens'
+//import RemoverMensagens from '../main/Remover/remover-mensagens'
+
+
 import './main.css';
-//import RemoverMensagens from '../main/remover-mensagens';
 
 import axios from 'axios';
 
-
 function Mensagems(props) {
 
-    //  const { mensagems } = props;
+    const popover = (
+        <Popover id="popover-basic">
+          <Popover.Content>
+           <h1 onClick={handleRemoverMensagens}>Apagar</h1>
+          </Popover.Content>
+        </Popover>
+      );
 
+    //  CADASTRAR_MENSAGEMS
     const API_URL_CADASTRAR_MENSAGEMS = 'http://localhost:3001/chat-mensagens';
 
     const [mensagems, setMensagems] = useState('');
 
-    //  const { setContatos } = props;
+    //  REMOVER_MENSAGENS
+     const API_URL_REMOVER_MENSAGENS = 'http://localhost:3001/chat-mensagens/';
 
-    //  const { contatos } = props;
+    //  REMOVER_MENSAGENS
+    async function handleRemoverMensagens() {
+        window.location.reload();
+         try {
+             await axios.delete(API_URL_REMOVER_MENSAGENS + props.mensagem.id);
+             props.recarregarMensagens(true);
+         } catch (err) {
 
+       }
+     }
 
+    //  CADASTRAR_MENSAGEMS
     async function cadastrar(event) {
         if (event.currentTarget.checkValidity() === true) {
             try {
@@ -44,7 +64,7 @@ function Mensagems(props) {
 
     var date = new Date();
     var horaTime = date.getHours() + ":" + date.getMinutes();
-    
+
     return (
         <div>
             <div id="container">
@@ -58,10 +78,11 @@ function Mensagems(props) {
                                     <h6 id="balaoMsgEsq" className="pt-2">
                                         {mensagem.descricao}
                                     </h6>
-                                    <div className="row">             
-                                        <h1 className="col">    
-                                          <RemoverMensagens mensagem={mensagem} recarregarMensagens={props.recarregarMensagens} />
-                                       </h1>
+                                    <div className="row">
+                                       <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+                                        <h1 id="ItemRemoverMsg" className="col">
+                                            <FontAwesomeIcon icon={faAngleDown} className="fa-lm" /></h1>
+                                        </OverlayTrigger>
                                         <h6 id="balaoTimeEsq" className="col">
                                             {mensagem.time ? mensagem.time : horaTime}
                                         </h6>
@@ -72,24 +93,27 @@ function Mensagems(props) {
                         :
                         <div key={mensagem.id} className="d-flex justify-content-end mt-2">
                             <div className="row-cols-auto">
-                                <div id="balaoDir" className="col">  
+                                <div id="balaoDir" className="col">
                                     <h6 id="balaoMsgDir" className="pt-2">
                                         {mensagem.descricao}
                                     </h6 >
-                                    <div className="row">             
-                                        <h1 className="col">    
-                                          <RemoverMensagens mensagem={mensagem} recarregarMensagens={props.recarregarMensagens} />
-                                       </h1> 
-                                    <h6 id="balaoTimeDir" className="col">
-                                        {mensagem.time ? mensagem.time : horaTime}
-                                    </h6>
+                                    <div className="row">
+                                        <OverlayTrigger trigger="click" placement="left" overlay={popover}>
+                                        <h1 id="ItemRemoverMsg" className="col">
+                                            <FontAwesomeIcon icon={faAngleDown} className="fa-lm" /></h1>
+                                        </OverlayTrigger>
+
+                                        <h6 id="balaoTimeDir" className="col">
+                                            {mensagem.time ? mensagem.time : horaTime}
+                                        </h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                 )
-                }  
+                }
+
+
             </div>
 
             <br />
