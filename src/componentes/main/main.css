@@ -70,11 +70,12 @@
 }
 /* Item Remover Mensagem */
 #ItemRemoverMsg{
-    font-Size: 35%;
+    font-Size: 85%;
     font-Family: Helvetica Neue;
     font-Style: normal; 
     font-Weight: bold;
     color: #C4C4C4;
+    outline: none;
 }
 
 
